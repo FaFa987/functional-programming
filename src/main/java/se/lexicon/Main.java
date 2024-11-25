@@ -49,6 +49,15 @@ public class Main {
 
         System.out.println("calOperator:" + calOperator(5000d,200d,minusOparator));
 
+        double calValue = calOperator(41d, 32d, new DoubleOperator() {
+
+            @Override
+            public Double apply(double a, double b) {
+                return a * b;
+            }
+        });
+        System.out.println("calValue: " + calValue);
+
 
     }
 

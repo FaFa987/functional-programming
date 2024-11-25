@@ -20,7 +20,7 @@ public class Main {
     static DoubleOperator doubleOperator = new DoubleOperator() {
 
         @Override
-        public Double additionOperat(double a, double b) {
+        public Double apply(double a, double b) {
             return a + b ;
         }
     };
@@ -28,7 +28,7 @@ public class Main {
     static DoubleOperator minusOparator = new DoubleOperator() {
 
         @Override
-        public Double additionOperat(double a, double b) {
+        public Double apply(double a, double b) {
             return a - b;
         }
     };
@@ -43,10 +43,17 @@ public class Main {
         System.out.println(stringBiggest.oparate("Jill", "Hamond"));
 
         System.out.println(concatString.oparate("Mohammad" , "Hossein"));
-        System.out.println(doubleOperator.additionOperat(23.7,51.2));
-        System.out.println("Addition: " +doubleOperator.additionOperat(50d,16d));
-        System.out.println("Minus: " +minusOparator.additionOperat(50d,16d));
+        System.out.println(doubleOperator.apply(23.7,51.2));
+        System.out.println("Addition: " +doubleOperator.apply(50d,16d));
+        System.out.println("Minus: " +minusOparator.apply(50d,16d));
 
+        System.out.println("calOperator:" + calOperator(5000d,200d,minusOparator));
+
+
+    }
+
+    public static double calOperator (Double d1 , Double d2 , DoubleOperator doubleOperator){
+        return doubleOperator.apply(d1 , d2);
 
     }
 }

@@ -23,6 +23,14 @@ public class PredicateExample {
                 System.out.println(i);
             }
         }*/
+        /**
+         * Predicate<T> - boolean test(T t);
+         * <p>
+         * Example UseCase:
+         * Filtering in a Collection
+         * Select element from a Stream
+         * Writing more concise and expressive code when dealing with condition(if statements)
+         */
         System.out.println(filterNumbers(number, isPositive));
         System.out.println(filterNumbers(number, isPositive.and(isOdd)));
         System.out.println(filterNumbers(number, isPositive.negate()));

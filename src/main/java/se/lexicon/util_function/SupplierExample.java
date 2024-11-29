@@ -3,6 +3,15 @@ package se.lexicon.util_function;
 import java.util.*;
 import java.util.function.Supplier;
 
+/**
+ * Supplier<T> - T get();
+ * <p>
+ * Example UseCase:
+ * Supply Default value
+ * Generate Random Value
+ * Initialize value
+ */
+
 public class SupplierExample {
 
     public static void main(String[] args) {

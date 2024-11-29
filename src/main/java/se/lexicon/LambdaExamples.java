@@ -1,10 +1,8 @@
 package se.lexicon;
 
-import se.lexicon.interfaces.DoStringStuff;
-import se.lexicon.interfaces.DoubleOperator;
-import se.lexicon.interfaces.Printer;
-import se.lexicon.interfaces.StringValidator;
+import se.lexicon.interfaces.*;
 
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class LambdaExamples {
@@ -35,6 +33,10 @@ public class LambdaExamples {
         System.out.println(mobileValidator.validate("0731234556"));// True
 
         printMessage.print("HELLO AGAIN");
+
+        IntRandom generateRandomInt = () -> new Random().nextInt();
+        int randomIntHere = generateRandomInt.generate();
+        System.out.println(randomIntHere);
     }
 
     public static double calOperator(double n1, double n2 , DoubleOperator operator){

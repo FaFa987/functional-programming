@@ -59,11 +59,11 @@ public class StreamDemo {
                 );
 
     }
-
-    public static void process(List<Person> list, Predicate<Person> predicate, Consumer<Person> consumer){
-        for (Person person: list){
-            if (predicate.test(person)){
-                consumer.accept(person);
+    //Generics is used here
+    public static <T> void process(List<T> list, Predicate<T> predicate, Consumer<T> consumer){
+        for (T t: list){
+            if (predicate.test(t)){
+                consumer.accept(t);
             }
         }
 

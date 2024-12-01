@@ -58,6 +58,11 @@ public class StreamDemo {
                 person -> System.out.println(person.getFirstName())
                 );
 
+        personList.stream().
+                filter(isLeapYear).
+                filter(isFemale).
+                forEach(printPerson);
+
     }
     //Generics is used here
     public static <T> void process(List<T> list, Predicate<T> predicate, Consumer<T> consumer){

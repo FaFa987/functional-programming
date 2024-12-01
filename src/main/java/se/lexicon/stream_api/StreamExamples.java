@@ -42,12 +42,17 @@ public class StreamExamples {
     }
 
     public static void ex4(){
-        List<Integer> numbers = Arrays.asList(2, 100, 1, 12, 100000, 20000);
+        List<Integer> numbers = Arrays.asList(2, 100, 1, 12, 100000, 20000);// Arrays.asList();
 
         Comparator<Integer> compareWithLambda = (n1,n2) -> n1.compareTo(n2);
 
-        Optional<Integer> min = numbers.stream().min(compareWithLambda);
-        System.out.println(min.get());
+        Optional<Integer> optionalOfMinValue = numbers.stream().min(compareWithLambda);
+
+        if(optionalOfMinValue.isPresent()){
+            System.out.println("Min number is " + optionalOfMinValue.get());
+        }else {
+            System.out.println("Min number is not present");
+        }
 
     }
 }

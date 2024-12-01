@@ -6,6 +6,8 @@ import se.lexicon.stream_api.model.Person;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class StreamDemo {
 
@@ -31,6 +33,7 @@ public class StreamDemo {
 
         );
 
+        //Imperative Style - How
         System.out.println("---------- Print Born on Leap Year ----------");
         for (Person person: personList){
             if (person.getDateOfBirth().isLeapYear()){
@@ -44,5 +47,25 @@ public class StreamDemo {
             }
         }
 
+        //---------------------
+        Predicate<Person> isLeapYear = person -> person.getDateOfBirth().isLeapYear();
+        Predicate<Person> isFemale = person -> person.getGender() == Gender.FEMALE;
+        Consumer<Person> printPerson = person -> System.out.println(person);
+
+        for (Person person: personList){
+            if (isLeapYear.test(person)){
+                printPerson.accept(person);
+            }
+        }
+
+        for (Person person: personList){
+            if (isFemale.test(person)){
+                printPerson.accept(person);
+            }
+        }
+
     }
+
+
+
 }

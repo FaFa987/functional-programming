@@ -52,20 +52,15 @@ public class StreamDemo {
         Predicate<Person> isFemale = person -> person.getGender() == Gender.FEMALE;
         Consumer<Person> printPerson = person -> System.out.println(person);
 
-        for (Person person: personList){
-            if (isLeapYear.test(person)){
-                printPerson.accept(person);
-            }
-        }
+    }
 
-        for (Person person: personList){
-            if (isFemale.test(person)){
-                printPerson.accept(person);
+    public static void process(List<Person> list, Predicate<Person> predicate, Consumer<Person> consumer){
+        for (Person person: list){
+            if (predicate.test(person)){
+                consumer.accept(person);
             }
         }
 
     }
-
-
 
 }

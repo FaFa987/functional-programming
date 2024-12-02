@@ -58,6 +58,7 @@ public class StreamDemo {
                 person -> System.out.println(person.getFirstName())
                 );
 //Declarative Style - What
+
         personList.stream().
                 filter(isLeapYear).
                 filter(isFemale).

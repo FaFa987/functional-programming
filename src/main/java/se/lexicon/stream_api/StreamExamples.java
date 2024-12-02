@@ -5,6 +5,7 @@ import se.lexicon.stream_api.model.Person;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,7 +14,7 @@ public class StreamExamples {
 
     public static void main(String[] args) {
 
-        ex9();
+        ex10();
 
     }
     // Terminal Operation: Count
@@ -122,5 +123,32 @@ public class StreamExamples {
                 .skip(3)
                 .limit(2)
                 .forEach(s -> System.out.println(s));
+    }
+    public static void ex10(){
+        List<Person> people = Arrays.asList(
+                new Person(1, "Alice", "Johnson", LocalDate.parse("1990-05-15"), Gender.FEMALE),
+                new Person(2, "Bob", "Smith", LocalDate.parse("1985-08-20"), Gender.MALE),
+                new Person(3, "Emily", "Davis", LocalDate.parse("1993-02-10"), Gender.FEMALE),
+                new Person(4, "John", "Doe", LocalDate.parse("1988-11-30"), Gender.MALE),
+                new Person(5, "Olivia", "Brown", LocalDate.parse("1987-04-25"), Gender.FEMALE),
+                new Person(6, "Michael", "Williams", LocalDate.parse("1991-09-05"), Gender.MALE),
+                new Person(7, "Sophia", "Martinez", LocalDate.parse("1989-07-12"), Gender.FEMALE),
+                new Person(8, "Daniel", "Johnson", LocalDate.parse("1995-03-18"), Gender.MALE),
+                new Person(9, "Ella", "Taylor", LocalDate.parse("1992-06-28"), Gender.FEMALE),
+                new Person(10, "William", "Anderson", LocalDate.parse("1986-12-03"), Gender.MALE),
+                new Person(11, "Ava", "Garcia", LocalDate.parse("1994-01-08"), Gender.FEMALE),
+                new Person(12, "Alexander", "Brown", LocalDate.parse("1984-10-17"), Gender.MALE),
+                new Person(13, "Charlotte", "Miller", LocalDate.parse("1990-08-22"), Gender.FEMALE),
+                new Person(14, "James", "Wilson", LocalDate.parse("1983-06-14"), Gender.MALE),
+                new Person(15, "Isabella", "Moore", LocalDate.parse("1988-04-07"), Gender.FEMALE)
+        );
+
+        Function<Person , String> extractPersonName = p -> p.getFirstName() + " " + p.getLastName();
+
+        people.stream()
+                .map(extractPersonName)
+                .sorted()
+                .forEach(System.out::println);
+
     }
 }
